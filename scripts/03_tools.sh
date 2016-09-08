@@ -4,7 +4,15 @@
 sudo curl -kL https://bootstrap.pypa.io/get-pip.py | python
 pip install pycrypto six
 
-# INSTALL GALAXY TOOLS
+# INSTALL TOOLS FROM THIS REPOSITORY
+sed -i '$d' ~/galaxy/config/tool_conf.xml
+echo '  <label id="additional_tools" text="Additional Tools" />' >> ~/galaxy/config/tool_conf.xml
+echo '</toolbox>' >> ~/galaxy/config/tool_conf.xml
+
+# INSTALL TOOLS FROM OTHER GITHUB REPOSITORIES
+sh install_tools_from_github.sh
+
+# INSTALL TOOLS FROM TOOL SHED
 sh install-tools.sh $1
 
 # SET SAMTOOLS PATH

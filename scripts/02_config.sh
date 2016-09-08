@@ -39,6 +39,7 @@ cp ../config/galaxy.ini ~/galaxy/config/
 cp ../config/job_conf.xml ~/galaxy/config/
 cp ../config/tool_data_table_conf.xml ~/galaxy/config/
 cp ../config/tool_sheds_conf.xml ~/galaxy/config/
+cp ~/galaxy/config/tool_conf.xml.sample ~/galaxy/config/tool_conf.xml
 export PATH=$HOME/galaxy-python/install/bin:$PATH
 export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.11/site-packages
 sudo service galaxy start
