@@ -1,0 +1,35 @@
+<tables>
+    <table name="fasta_indexes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/fasta_indexes.loc" />
+    </table>
+    <table name="bowtie2_indexes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/bowtie2_indexes.loc" />
+    </table>
+    <table name="bwa_indexes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/bwa_index.loc" />
+    </table>
+    <!-- Locations of indexes in the Bowtie2 mapper format for TopHat2 to use -->
+    <table name="tophat2_indexes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/bowtie2_indices.loc" />
+    </table>
+    <table name="sailfish_index" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/sailfish_index.loc" />
+    </table>
+    <table name="gatk_beds" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/gatk_beds.loc" />
+    </table>
+    <table name="gatk_refgenomes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/gatk_refgenomes.loc" />
+    </table>
+    <table name="gatk_snps" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/gatk_snps.loc" />
+    </table>
+</tables>

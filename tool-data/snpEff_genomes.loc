@@ -1,0 +1,21 @@
+# SnpEff databases
+# List created using command: java -jar snpEff.jar databases
+# Version    Description
+DNApod_RAPbuild5_representative 	 DNApod_Rice rice_IRGSP-RAP_build5_representative
+DNApod_RAPbuild5_predicted 	 DNApod_Rice rice_IRGSP-RAP_build5_predicted
+DNApod_maizeZmB73_5b_WGS	 DNApod_Maize_ZmB73_5b_working-set
+DNApod_maizeZmB73_5b_FGS	 DNApod_Maize_ZmB73_5b_filtered-set
+DNApod_Sorbi_Sbi1.4_JGI 	 DNApod_Sorbi_Sbi1.4_JGI
+alyrata1 	 Arabidopsis_lyrata   alyrata1
+alyrata107 	 Arabidopsis_lyrata   alyrata107
+v.1.0.21 	 Arabidopsis_lyrata   v.1.0.21
+athaliana130 	 Arabidopsis_Thaliana   athaliana130
+athalianaTair10 	 Arabidopsis_Thaliana   athalianaTair10
+athalianaTair9 	 Arabidopsis_Thaliana   athalianaTair9
+TAIR10.21 	 Arabidopsis_thaliana   TAIR10.21
+Oryza_brachyantha.v1.4b.21 	 Oryza_brachyantha   Oryza_brachyantha.v1.4b.21
+AGI1.1.21 	 Oryza_glaberrima   AGI1.1.21
+ASM465v1.21 	 Oryza_indica   ASM465v1.21
+IRGSP-1.0.21 	 Oryza_sativa   IRGSP-1.0.21
+Sorbi1.21 	 Sorghum_bicolor   Sorbi1.21
+AGPv3.21 	 Zea_mays   AGPv3.21

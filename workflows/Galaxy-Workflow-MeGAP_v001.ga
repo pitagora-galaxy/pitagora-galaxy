@@ -1,0 +1,451 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "MeGAP-PreAnalysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 303
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "abfd8e88-8c17-4868-83d3-bff43aed8e53", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "phiX174 fasta"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 388
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"phiX174 fasta\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "3bddd6ae-27c7-435a-bc53-759e44183c07", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "hg38 fasta"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 473
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"hg38 fasta\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "7e2317dc-b1db-4388-abd4-b758759feeca", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "megap_cutadapt", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cutadapt", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 428, 
+                "top": 303
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_cutadapt", 
+            "tool_state": "{\"optM\": \"\\\"50\\\"\", \"defaultadapter2\": \"\\\"AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT\\\"\", \"defaultadapter1\": \"\\\"AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC\\\"\", \"optN\": \"\\\"1\\\"\", \"__page__\": 0, \"optE\": \"\\\"0.1\\\"\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"adapter\": \"[]\", \"noindels\": \"\\\"False\\\"\", \"optO\": \"\\\"3\\\"\", \"input\": \"null\", \"optQ\": \"\\\"17\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "cfc9e821-154c-4e6f-8470-1faa1c475748", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "cat1", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "queries_0|input2": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Concatenate datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 428, 
+                "top": 416
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "cat1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"queries\": \"[{\\\"input2\\\": null, \\\"__index__\\\": 0}]\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "6564f65f-41a1-4a96-bdc6-a61b70cdc490", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "megap_exclude_n_fastq2", 
+            "id": 5, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Exclude_N_Fastq2", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 693, 
+                "top": 303
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_exclude_n_fastq2", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "5600dc3f-d079-4c0f-806e-e7c5d4e028a8", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "megap_bowtie2_build", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Bowtie2 build", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bowtie_base_index"
+                }
+            ], 
+            "position": {
+                "left": 693, 
+                "top": 416
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_bowtie2_build", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "871c5929-bddd-4641-acf4-2877cc228cfb", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "megap_bowtie2_align", 
+            "id": 7, 
+            "input_connections": {
+                "db": {
+                    "id": 6, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 5, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Bowtie2 align", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 986, 
+                "top": 206
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_bowtie2_align", 
+            "tool_state": "{\"nosq\": \"\\\"True\\\"\", \"__page__\": 0, \"nounal\": \"\\\"True\\\"\", \"__rerun_remap_job_id__\": null, \"db\": \"null\", \"fastlocal\": \"\\\"True\\\"\", \"nohd\": \"\\\"True\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "118009a7-8426-43f4-8755-59cc304afe1e", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "megap_phixremove", 
+            "id": 8, 
+            "input_connections": {
+                "inputFq": {
+                    "id": 5, 
+                    "output_name": "output"
+                }, 
+                "inputSam": {
+                    "id": 7, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "PhixRemove", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 1225, 
+                "top": 315
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_phixremove", 
+            "tool_state": "{\"inputFq\": \"null\", \"inputSam\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "120e3d19-7a97-4238-b8bb-4fecf1e9c5a3", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "megap_qual_filter_fastqfasta", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Qual_Filter_FASTQFASTA", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1432, 
+                "top": 306
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_qual_filter_fastqfasta", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "cbae6018-6dd1-4ef7-8534-397e927264b8", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "megap_cut", 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1679, 
+                "top": 306
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_cut", 
+            "tool_state": "{\"__page__\": 0, \"cnum\": \"\\\"20\\\"\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "e1c4d1c0-3dd0-45a9-9a8b-3528d1fe8108", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "megap_jellyfishcount", 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 10, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "JellyfishCount", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1929, 
+                "top": 307
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_jellyfishcount", 
+            "tool_state": "{\"optM\": \"\\\"20\\\"\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"optT\": \"\\\"1\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"optS\": \"\\\"100M\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "91f294a2-be78-4251-9364-9604b8300db8", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "megap_jellyfishdump", 
+            "id": 12, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "JellyfishDump", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 2121, 
+                "top": 306
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_jellyfishdump", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "7df8ea89-75d9-4035-b98e-6e34b40aa22d", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "megap_calculateentropydiv", 
+            "id": 13, 
+            "input_connections": {
+                "input": {
+                    "id": 12, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "CalculateEntropyDiv", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2302, 
+                "top": 306
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "megap_calculateentropydiv", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "0305102d-8b41-45de-8ea2-23d478cd57f5", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "9cc810bf-1d26-40ce-9b94-a1d918d65bcc"
+}

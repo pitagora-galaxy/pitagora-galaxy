@@ -1,0 +1,253 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "RNA-seq 02 v001", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Adapter List"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 199.828125, 
+                "top": 186.1875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Adapter List\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "14daabc8-8bbe-4d6c-8205-9993cc31619a"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Single or Left-hand Reads (fastqsanger)"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 201.84375, 
+                "top": 282.1875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Single or Left-hand Reads (fastqsanger)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "e81cdd70-ea3b-4c5e-9932-539041c359b1"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Right-hand Reads (fastqsanger)"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200.828125, 
+                "top": 387.1875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Right-hand Reads (fastqsanger)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "9cee8245-4097-4ecb-84ca-ecd85f47078e"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "adpaters": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "mates": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "reads": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "FastqMcf", 
+            "outputs": [
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "reads_out", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "mates_out", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 428.015625, 
+                "top": 199.859375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/jjohnson/fastq_mcf/fastq_mcf/1.0", 
+            "tool_state": "{\"phred\": \"\\\"\\\"\", \"__page__\": 0, \"noclip\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"reads\": \"null\", \"mates\": \"null\", \"adpaters\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\", \"trimming\": \"{\\\"nmax\\\": \\\"\\\", \\\"qthr\\\": \\\"\\\", \\\"scale\\\": \\\"\\\", \\\"qwin\\\": \\\"\\\", \\\"rmns\\\": \\\"False\\\", \\\"pctns\\\": \\\"\\\", \\\"ilv3\\\": \\\"\\\", \\\"sampcnt\\\": \\\"\\\", \\\"nkeep\\\": \\\"36\\\", \\\"pctdiff\\\": \\\"\\\", \\\"skewpct\\\": \\\"4.0\\\", \\\"__current_case__\\\": 2, \\\"minpct\\\": \\\"\\\", \\\"choice\\\": \\\"user_set\\\", \\\"nmin\\\": \\\"\\\"}\"}", 
+            "tool_version": "1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a43a2379-31c3-479c-acf5-84437b43f8c3"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "reads_out"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 888.015625, 
+                "top": 194.859375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.63", 
+            "tool_state": "{\"__page__\": 0, \"limits\": \"null\", \"input_file\": \"null\", \"__rerun_remap_job_id__\": null, \"out_prefix\": \"\\\"FastQC\\\"\", \"contaminants\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.63", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "7e7a2b0e-c96f-4fb6-b12e-c9561d24c484"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "mates_out"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 877.015625, 
+                "top": 423.859375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.63", 
+            "tool_state": "{\"__page__\": 0, \"limits\": \"null\", \"input_file\": \"null\", \"__rerun_remap_job_id__\": null, \"out_prefix\": \"\\\"FastQC\\\"\", \"contaminants\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.63", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "425a3a7e-c26c-42d7-b9f3-ecf472dadb0c"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "single_or_paired|input_mate1": {
+                    "id": 3, 
+                    "output_name": "reads_out"
+                }, 
+                "single_or_paired|input_mate2": {
+                    "id": 3, 
+                    "output_name": "mates_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sailfish", 
+                    "name": "index_path"
+                }
+            ], 
+            "label": null, 
+            "name": "Sailfish", 
+            "outputs": [
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "quant", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "quant_bias_corrected", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "reads_count_info", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 879.4375, 
+                "top": 627.9375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "sailfish_linux", 
+            "tool_state": "{\"single_or_paired\": \"{\\\"__current_case__\\\": 1, \\\"orientation\\\": \\\"toward\\\", \\\"input_mate1\\\": null, \\\"single_or_paired_opts\\\": \\\"paired\\\", \\\"strandedness\\\": \\\"unknown\\\", \\\"input_mate2\\\": null}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"index_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.6.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "42e0603f-0e05-4776-a65c-574966cbb471"
+        }
+    }, 
+    "uuid": "d499a0b2-6597-4fbb-ad2c-c2b32b5a673f"
+}

@@ -1,0 +1,412 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "ChIP-seq 02 v001", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "FASTQ File"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 175.703125, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"FASTQ File\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "11c9810e-e6d3-4d6d-bb4b-b448efcadc34"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Gene List File"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 311.6875, 
+                "top": 663.015625
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Gene List File\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "1640d1a5-a4ec-4750-a263-aef66976d4eb"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Gene ID x Name Table"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1016.671875, 
+                "top": 686.390625
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Gene ID x Name Table\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "c35c6fbd-0408-4a57-a96d-876b7c34f4ef"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "library|input_1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bowtie2", 
+                    "name": "reference_genome"
+                }
+            ], 
+            "label": null, 
+            "name": "Bowtie2", 
+            "outputs": [
+                {
+                    "name": "output_unaligned_reads_l", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_unaligned_reads_r", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 211, 
+                "top": 338.734375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/0.3", 
+            "tool_state": "{\"__page__\": 0, \"read_group\": \"{\\\"__current_case__\\\": 1, \\\"read_group_selector\\\": \\\"no\\\"}\", \"__rerun_remap_job_id__\": null, \"library\": \"{\\\"unaligned_file\\\": \\\"False\\\", \\\"type\\\": \\\"single\\\", \\\"__current_case__\\\": 0, \\\"input_1\\\": null}\", \"reference_genome\": \"{\\\"source\\\": \\\"indexed\\\", \\\"__current_case__\\\": 0, \\\"index\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"analysis_type\": \"{\\\"analysis_type_selector\\\": \\\"simple\\\", \\\"presets\\\": \\\"no_presets\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "0.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8a1d5ec3-8c98-4e3b-beea-db7802ea6da4"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "awk", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 524.8125, 
+                "top": 648.140625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/awk/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"FS\": \"\\\"tab\\\"\", \"file_data\": \"\\\"{\\\\nif($6==\\\\\\\"+\\\\\\\"){print $1,$2-1000,$2+1000,$4,$5,$6}\\\\nelse if($6==\\\\\\\"-\\\\\\\"){print $1,$3-1000,$3+1000,$4,$5,$6}\\\\n}\\\"\", \"__rerun_remap_job_id__\": null, \"OFS\": \"\\\"tab\\\"\", \"input\": \"null\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e54b677e-4679-4362-964d-2831e7d75fda"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_type|input_chipseq_file1": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MACS", 
+            "outputs": [
+                {
+                    "name": "output_bed_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_xls_to_interval_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_xls_to_interval_negative_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_treatment_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_control_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 523.75, 
+                "top": 328.0625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/macs/peakcalling_macs/1.0.1", 
+            "tool_state": "{\"gsize\": \"\\\"2700000000.0\\\"\", \"tsize\": \"\\\"25\\\"\", \"futurefdr\": \"\\\"False\\\"\", \"__page__\": 0, \"diag_type\": \"{\\\"diag_type_selector\\\": \\\"no_diag\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"input_type\": \"{\\\"input_control_file1\\\": null, \\\"input_chipseq_file1\\\": null, \\\"input_type_selector\\\": \\\"single_end\\\", \\\"__current_case__\\\": 1}\", \"wig_type\": \"{\\\"wig_type_selector\\\": \\\"no_wig\\\", \\\"__current_case__\\\": 1}\", \"nolambda\": \"\\\"False\\\"\", \"experiment_name\": \"\\\"MACS in Galaxy\\\"\", \"bw\": \"\\\"300\\\"\", \"xls_to_interval\": \"\\\"False\\\"\", \"nomodel_type\": \"{\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 1}\", \"mfold\": \"\\\"32\\\"\", \"lambdaset\": \"\\\"1000,5000,10000\\\"\", \"pvalue\": \"\\\"1e-05\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e3bdc72f-7851-435e-a511-a15d60a260fb"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "output_bed_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "awk", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 834.859375, 
+                "top": 390.171875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/awk/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"FS\": \"\\\"tab\\\"\", \"file_data\": \"\\\"{if (NR>1) {print $1,$2,$3,$4,$5;} }\\\"\", \"__rerun_remap_job_id__\": null, \"OFS\": \"\\\"tab\\\"\", \"input\": \"null\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "3549ea66-5f1b-40c7-a434-3ec21aa52be5"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 6, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "interval"
+                }
+            ], 
+            "position": {
+                "left": 1055.578125, 
+                "top": 454.296875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/join/gops_join_1/1.0.0", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"min\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill\": \"\\\"none\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9a18bec3-60f0-41a7-b010-5309de4d421d"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input1": {
+                    "id": 7, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1333.640625, 
+                "top": 535.375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"9\\\"}\", \"partial\": \"\\\"\\\"\", \"field2\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "75f8ece5-c2c2-464c-95c9-279e2afb22e7"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Count", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1546.734375, 
+                "top": 545.4375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Count1", 
+            "tool_state": "{\"column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"17\\\"]}\", \"input\": \"null\", \"__rerun_remap_job_id__\": null, \"delim\": \"\\\"T\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6c8feac1-3b1c-4884-9d11-d20bd44627d2"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "sed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1559.53125, 
+                "top": 709.265625
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput": {
+                    "action_arguments": {
+                        "newtype": "csv"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/sed/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"silent\": \"\\\"\\\"\", \"url_paste\": \"\\\"s/\\\\\\\\t/,/g\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "26be57e1-20e2-4561-81e3-c7fd6a0d5fe7"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1753.765625, 
+                "top": 573.484375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c2\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ceaa26fd-e68c-4d27-9cb3-3d051989b022"
+        }
+    }, 
+    "uuid": "f233a2d3-22ff-474d-81ce-83319b33341a"
+}

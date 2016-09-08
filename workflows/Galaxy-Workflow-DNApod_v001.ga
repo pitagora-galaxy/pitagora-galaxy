@@ -1,0 +1,235 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "ex) DNApod--DNA polymorphisms workflow", 
+    "format-version": "0.1", 
+    "name": "DNApod--SNPs + InDels workflow", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/takakoron/detect_snps/Detect_SNPs_docker/1.0.0", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Detect_SNPs", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_SNPs", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_SNPs", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_SNPs", 
+                    "name": "how"
+                }
+            ], 
+            "label": null, 
+            "name": "Detect_SNPs", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 199.94032287597656, 
+                "top": 199.9402961730957
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/takakoron/detect_snps/Detect_SNPs_docker/1.0.0", 
+            "tool_state": "{\"how\": \"{\\\"het_hom_both\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"gq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"mpileup\\\": null, \\\"mq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"how_specify\\\": \\\"mpileup\\\", \\\"dp\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "71c1f3db-1057-423b-9164-6b21377039b7", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/takakoron/detect_indels/Detect_Indels_docker/1.0.0", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Detect_Indels", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_Indels", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_Indels", 
+                    "name": "how"
+                }, 
+                {
+                    "description": "runtime parameter for tool Detect_Indels", 
+                    "name": "how"
+                }
+            ], 
+            "label": null, 
+            "name": "Detect_Indels", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 199.9461212158203, 
+                "top": 351.9496955871582
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/takakoron/detect_indels/Detect_Indels_docker/1.0.0", 
+            "tool_state": "{\"how\": \"{\\\"het_hom_both\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"gq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"mpileup\\\": null, \\\"mq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"how_specify\\\": \\\"mpileup\\\", \\\"dp\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "c2af3673-058e-4ef2-8c0a-9f345d6c1492", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/takakoron/merge_snpsindels_files/Merge_DNA_polymorphism_files_docker/1.0.0", 
+            "id": 2, 
+            "input_connections": {
+                "input1": {
+                    "id": 0, 
+                    "output_name": "output1"
+                }, 
+                "input2": {
+                    "id": 1, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Merge_SNPs_/_InDels_data_files", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 487.94703674316406, 
+                "top": 247.94142532348633
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/takakoron/merge_snpsindels_files/Merge_DNA_polymorphism_files_docker/1.0.0", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "19591e44-0272-4626-ac02-11b814a0f793", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/takakoron/distribution_of_dna_polymorphism/Visualize_distrubution_of_polymorphism_docker/1.0.0", 
+            "id": 3, 
+            "input_connections": {
+                "polymorphism": {
+                    "id": 2, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Visualize distribution of DNA polymorphism", 
+                    "name": "annotation_data"
+                }
+            ], 
+            "label": null, 
+            "name": "Visualize distribution of DNA polymorphism", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 758.4519195556641, 
+                "top": 159.9393653869629
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/takakoron/distribution_of_dna_polymorphism/Visualize_distrubution_of_polymorphism_docker/1.0.0", 
+            "tool_state": "{\"polymorphism\": \"null\", \"__rerun_remap_job_id__\": null, \"annotation_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "4672f462-cd99-4fce-93c0-2b358e4db2c7", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/takakoron/snpeff_3_6c/snpEff_docker/3.6c (build 2014-05-20)", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "lof"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "canon"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "motif"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "udLength"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "genomeVersion"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "generate_stats"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "hgvs"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 766.9447784423828, 
+                "top": 372.9414253234863
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/takakoron/snpeff_3_6c/snpEff_docker/3.6c (build 2014-05-20)", 
+            "tool_state": "{\"__page__\": 0, \"outputFormat\": \"\\\"vcf\\\"\", \"lof\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"inputFormat\": \"\\\"vcf\\\"\", \"genomeVersion\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"canon\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"generate_stats\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"hgvs\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input\": \"null\", \"motif\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "3.6c (build 2014-05-20)", 
+            "type": "tool", 
+            "uuid": "32f01639-4972-4438-b687-9a56fd14af38", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "4ad43a4e-a274-4381-a0b5-6fa15353ccd5"
+}

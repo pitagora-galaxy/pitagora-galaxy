@@ -1,0 +1,533 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "MiGAP", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 145, 
+                "top": 165
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "b97bbda8-e7a1-4232-aa9f-11dd214fc1d6", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 838, 
+                "top": 627
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ca81fcb9-a1ae-4b64-be81-a4629ea0afeb", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1336, 
+                "top": 593
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "00a7b192-9460-42ab-ab9d-859aa7ee7ec7", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1377, 
+                "top": 670
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "56d5a68e-f624-4302-abce-cab98479691e", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "migap_mga", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaGeneAnotator", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 394, 
+                "top": 141
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_mga", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"option\": \"\\\"-s\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "c18d335e-a61f-4328-90c3-280ea4d3f5f2", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "migap_trnascan-se", 
+            "id": 5, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "tRNAscan-SE 1.23", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 385, 
+                "top": 309
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_trnascan-se", 
+            "tool_state": "{\"__page__\": 0, \"optModel\": \"\\\"-B\\\"\", \"optH\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"optC\": \"\\\"False\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "04414bfc-5c98-4131-b5a1-1163a63d9807", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "migap_3", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "RNAmmer 1.2", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "gff"
+                }
+            ], 
+            "position": {
+                "left": 386, 
+                "top": 421
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_3", 
+            "tool_state": "{\"optM\": \"[\\\"lsu\\\", \\\"ssu\\\", \\\"tsu\\\"]\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"optS\": \"\\\"bac\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "839f02b1-15d4-4892-b347-9fb7124efa66", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "migap_16srrna-search", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "16S rRNA Search", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 387, 
+                "top": 533
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_16srrna-search", 
+            "tool_state": "{\"__page__\": 0, \"evalue\": \"\\\"1e-20\\\"\", \"numdesc\": \"\\\"1\\\"\", \"numali\": \"\\\"1\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "84884c6b-39cb-4bf1-966f-5f11b97caf9b", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "migap_merge", 
+            "id": 8, 
+            "input_connections": {
+                "input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 4, 
+                    "output_name": "output"
+                }, 
+                "input3": {
+                    "id": 5, 
+                    "output_name": "output"
+                }, 
+                "input4": {
+                    "id": 6, 
+                    "output_name": "output"
+                }, 
+                "input5": {
+                    "id": 7, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Report(interim)", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output2", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output3", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output4", 
+                    "type": "csv"
+                }, 
+                {
+                    "name": "output5", 
+                    "type": "embl"
+                }, 
+                {
+                    "name": "output6", 
+                    "type": "genbank"
+                }, 
+                {
+                    "name": "output7", 
+                    "type": "gff"
+                }
+            ], 
+            "position": {
+                "left": 619, 
+                "top": 226
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_merge", 
+            "tool_state": "{\"input2\": \"null\", \"input3\": \"null\", \"input1\": \"null\", \"input4\": \"null\", \"input5\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "d7cfb01e-8d7d-47f7-8744-6babd573fc9a", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "migap_refseq-search", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "output2"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "RefSeq Search", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 860, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_refseq-search", 
+            "tool_state": "{\"__page__\": 0, \"evalue\": \"\\\"100.0\\\"\", \"numdesc\": \"\\\"1\\\"\", \"numali\": \"\\\"1\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "65e2da1a-0893-4bc1-b114-4058725a82cb", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "migap_cog-search", 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "output2"
+                }, 
+                "subject": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "COG Search", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1040, 
+                "top": 576
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_cog-search", 
+            "tool_state": "{\"__page__\": 0, \"evalue\": \"\\\"100.0\\\"\", \"numdesc\": \"\\\"1\\\"\", \"numali\": \"\\\"1\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"subject\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "24907898-5f8b-4130-a23b-20262dfa6a59", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "migap_unannotated", 
+            "id": 11, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "output2"
+                }, 
+                "input2": {
+                    "id": 10, 
+                    "output_name": "output"
+                }, 
+                "input3": {
+                    "id": 9, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Unannotated", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1145, 
+                "top": 284
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_unannotated", 
+            "tool_state": "{\"input2\": \"null\", \"input3\": \"null\", \"input1\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "71f512b3-c75b-458b-a2d0-e7e0ef10df7e", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "migap_trembl-search", 
+            "id": 12, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "TrEMBL Search", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1372, 
+                "top": 214
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_trembl-search", 
+            "tool_state": "{\"__page__\": 0, \"evalue\": \"\\\"100.0\\\"\", \"numdesc\": \"\\\"1\\\"\", \"numali\": \"\\\"1\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "f1919a0f-822b-4a33-85e7-1e0490831664", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "migap_merge-a", 
+            "id": 13, 
+            "input_connections": {
+                "input1": {
+                    "id": 10, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 12, 
+                    "output_name": "output"
+                }, 
+                "input3": {
+                    "id": 9, 
+                    "output_name": "output"
+                }, 
+                "input4": {
+                    "id": 8, 
+                    "output_name": "output6"
+                }, 
+                "input5": {
+                    "id": 8, 
+                    "output_name": "output5"
+                }, 
+                "input6": {
+                    "id": 8, 
+                    "output_name": "output3"
+                }, 
+                "input7": {
+                    "id": 8, 
+                    "output_name": "output4"
+                }, 
+                "input8": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "input9": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Merge(final)", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "genbank"
+                }, 
+                {
+                    "name": "output2", 
+                    "type": "embl"
+                }, 
+                {
+                    "name": "output3", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output4", 
+                    "type": "csv"
+                }, 
+                {
+                    "name": "output5", 
+                    "type": "genbank"
+                }
+            ], 
+            "position": {
+                "left": 1571, 
+                "top": 315
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "migap_merge-a", 
+            "tool_state": "{\"input2\": \"null\", \"input3\": \"null\", \"input1\": \"null\", \"input6\": \"null\", \"input7\": \"null\", \"input4\": \"null\", \"input5\": \"null\", \"__page__\": 0, \"input8\": \"null\", \"input9\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "0aefc937-7d5c-4f8c-beff-47cf95ef3bec", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "ed95c611-5df5-4792-bf9e-4e3875ea4170"
+}

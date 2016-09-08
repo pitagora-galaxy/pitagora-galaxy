@@ -1,0 +1,632 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "ChIP-seq 04 v001", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input FASTQ (fastqsangar)"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 351
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input FASTQ (fastqsangar)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "5948ff65-d2ed-4111-8c5c-d85426bb593d"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "paired|input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with BWA for Illumina", 
+                    "name": "genomeSource"
+                }
+            ], 
+            "label": null, 
+            "name": "Map with BWA for Illumina", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 224.5, 
+                "top": 482
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bwa_wrappers/bwa_wrapper/1.2.3", 
+            "tool_state": "{\"genomeSource\": \"{\\\"indices\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"refGenomeSource\\\": \\\"indexed\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"paired\": \"{\\\"sPaired\\\": \\\"single\\\", \\\"input1\\\": null, \\\"__current_case__\\\": 0}\", \"params\": \"{\\\"__current_case__\\\": 0, \\\"source_select\\\": \\\"pre_set\\\"}\", \"suppressHeader\": \"\\\"False\\\"\"}", 
+            "tool_version": "1.2.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "595df08f-0306-4f84-a836-4e3aea3b6e24"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Convert SAM", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "interval"
+                }
+            ], 
+            "position": {
+                "left": 634, 
+                "top": 201
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam2interval/sam2interval/1.0.1", 
+            "tool_state": "{\"print_all\": \"\\\"-p\\\"\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "055d9ec6-d0f3-47bc-9060-67a9d3dbae46"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input_type|input_chipseq_file1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MACS", 
+            "outputs": [
+                {
+                    "name": "output_bed_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_xls_to_interval_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_xls_to_interval_negative_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_treatment_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_control_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 630, 
+                "top": 362
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_bed_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_bed_file"
+                }, 
+                "HideDatasetActionoutput_control_wig_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_control_wig_file"
+                }, 
+                "HideDatasetActionoutput_extra_files": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_extra_files"
+                }, 
+                "HideDatasetActionoutput_treatment_wig_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_treatment_wig_file"
+                }, 
+                "HideDatasetActionoutput_xls_to_interval_negative_peaks_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_xls_to_interval_negative_peaks_file"
+                }, 
+                "HideDatasetActionoutput_xls_to_interval_peaks_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_xls_to_interval_peaks_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/macs/peakcalling_macs/1.0.1", 
+            "tool_state": "{\"gsize\": \"\\\"2700000000.0\\\"\", \"tsize\": \"\\\"25\\\"\", \"futurefdr\": \"\\\"False\\\"\", \"__page__\": 0, \"diag_type\": \"{\\\"diag_type_selector\\\": \\\"no_diag\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"input_type\": \"{\\\"input_control_file1\\\": null, \\\"input_chipseq_file1\\\": null, \\\"input_type_selector\\\": \\\"single_end\\\", \\\"__current_case__\\\": 1}\", \"wig_type\": \"{\\\"wig_type_selector\\\": \\\"no_wig\\\", \\\"__current_case__\\\": 1}\", \"nolambda\": \"\\\"False\\\"\", \"experiment_name\": \"\\\"MACS in Galaxy\\\"\", \"bw\": \"\\\"300\\\"\", \"xls_to_interval\": \"\\\"False\\\"\", \"nomodel_type\": \"{\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 1}\", \"mfold\": \"\\\"32\\\"\", \"lambdaset\": \"\\\"1000,5000,10000\\\"\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\", \"pvalue\": \"\\\"1e-05\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "216dabba-5e5f-42d5-b36b-317338244994"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_type|input_chipseq_file1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MACS14", 
+            "outputs": [
+                {
+                    "name": "output_bed_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_xls_to_interval_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_xls_to_interval_negative_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_treatment_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_control_wig_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 634, 
+                "top": 683
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_control_wig_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_control_wig_file"
+                }, 
+                "HideDatasetActionoutput_extra_files": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_extra_files"
+                }, 
+                "HideDatasetActionoutput_treatment_wig_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_treatment_wig_file"
+                }, 
+                "HideDatasetActionoutput_xls_to_interval_negative_peaks_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_xls_to_interval_negative_peaks_file"
+                }, 
+                "HideDatasetActionoutput_xls_to_interval_peaks_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_xls_to_interval_peaks_file"
+                }, 
+                "RenameDatasetActionoutput_bed_file": {
+                    "action_arguments": {
+                        "newname": "MACS1.4 peaks"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_bed_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/ryo-tas/macs14/peakcalling_macs14/1.4.2", 
+            "tool_state": "{\"gsize\": \"\\\"2700000000.0\\\"\", \"slocal\": \"\\\"1000\\\"\", \"futurefdr\": \"\\\"False\\\"\", \"__page__\": 0, \"diag_type\": \"{\\\"diag_type_selector\\\": \\\"no_diag\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"tsize\": \"\\\"25\\\"\", \"wig_type\": \"{\\\"wig_type_selector\\\": \\\"no_wig\\\", \\\"__current_case__\\\": 1}\", \"nolambda\": \"\\\"False\\\"\", \"experiment_name\": \"\\\"MACS14 in Galaxy\\\"\", \"bw\": \"\\\"300\\\"\", \"xls_to_interval\": \"\\\"False\\\"\", \"nomodel_type\": \"{\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 1}\", \"mfold\": \"\\\"10,30\\\"\", \"llocal\": \"\\\"10000\\\"\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\", \"pvalue\": \"\\\"1e-05\\\"\", \"input_type\": \"{\\\"input_control_file1\\\": null, \\\"input_chipseq_file1\\\": null, \\\"input_type_selector\\\": \\\"single_end\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "1.4.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d65d6953-ed63-43a5-9dcb-04f9e44dd363"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_treatment_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MACS2 callpeak", 
+            "outputs": [
+                {
+                    "name": "output_bed", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_broadpeaks", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_gappedpeaks", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_narrowpeaks", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_summits", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_plot", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_treat_pileup", 
+                    "type": "bedgraph"
+                }, 
+                {
+                    "name": "output_control_lambda", 
+                    "type": "bedgraph"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 621, 
+                "top": 999
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_bed": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_bed"
+                }, 
+                "HideDatasetActionoutput_broadpeaks": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_broadpeaks"
+                }, 
+                "HideDatasetActionoutput_control_lambda": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_control_lambda"
+                }, 
+                "HideDatasetActionoutput_extra_files": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_extra_files"
+                }, 
+                "HideDatasetActionoutput_gappedpeaks": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_gappedpeaks"
+                }, 
+                "HideDatasetActionoutput_narrowpeaks": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_narrowpeaks"
+                }, 
+                "HideDatasetActionoutput_plot": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_plot"
+                }, 
+                "HideDatasetActionoutput_summits": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_summits"
+                }, 
+                "HideDatasetActionoutput_treat_pileup": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_treat_pileup"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_callpeak/2.1.0.20140616.0", 
+            "tool_state": "{\"__page__\": 0, \"effective_genome_size_options\": \"{\\\"effective_genome_size_options_selector\\\": \\\"2451960000\\\", \\\"__current_case__\\\": 4}\", \"bampe\": \"\\\"False\\\"\", \"input_control_file\": \"null\", \"__rerun_remap_job_id__\": null, \"band_width\": \"\\\"300\\\"\", \"cutoff_options\": \"{\\\"cutoff_options_selector\\\": \\\"qvalue\\\", \\\"qvalue\\\": \\\"0.05\\\", \\\"__current_case__\\\": 1}\", \"advanced_options\": \"{\\\"advanced_options_selector\\\": \\\"off\\\", \\\"__current_case__\\\": 1}\", \"input_treatment_file\": \"null\", \"nomodel_type\": \"{\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\", \"outputs\": \"[\\\"peaks_bed\\\"]\"}", 
+            "tool_version": "2.1.0.20140616.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "0bc4b0f2-3e9b-440a-9b82-9b53b99b2616"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_bed_file": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SICER", 
+            "outputs": [
+                {
+                    "name": "redundancy_removed_test_bed_output_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "redundancy_removed_control_bed_output_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "summary_graph_output_file", 
+                    "type": "bedgraph"
+                }, 
+                {
+                    "name": "test_normalized_wig_output_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "significant_islands_output_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "island_filtered_output_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "island_filtered_normalized_wig_output_file", 
+                    "type": "wig"
+                }, 
+                {
+                    "name": "score_island_output_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "islands_summary_output_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "significant_islands_summary_output_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_log_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1158, 
+                "top": 206
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionisland_filtered_normalized_wig_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "island_filtered_normalized_wig_output_file"
+                }, 
+                "HideDatasetActionisland_filtered_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "island_filtered_output_file"
+                }, 
+                "HideDatasetActionislands_summary_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "islands_summary_output_file"
+                }, 
+                "HideDatasetActionoutput_log_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_log_file"
+                }, 
+                "HideDatasetActionredundancy_removed_control_bed_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "redundancy_removed_control_bed_output_file"
+                }, 
+                "HideDatasetActionredundancy_removed_test_bed_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "redundancy_removed_test_bed_output_file"
+                }, 
+                "HideDatasetActionscore_island_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "score_island_output_file"
+                }, 
+                "HideDatasetActionsignificant_islands_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "significant_islands_output_file"
+                }, 
+                "HideDatasetActionsignificant_islands_summary_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "significant_islands_summary_output_file"
+                }, 
+                "HideDatasetActionsummary_graph_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "summary_graph_output_file"
+                }, 
+                "HideDatasetActiontest_normalized_wig_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "test_normalized_wig_output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/sicer/peakcalling_sicer/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"window_size\": \"\\\"200\\\"\", \"fix_off_by_one_errors\": \"\\\"True\\\"\", \"error_cut_off\": \"\\\"0.01\\\"\", \"input_control_file\": \"null\", \"__rerun_remap_job_id__\": null, \"input_bed_file\": \"null\", \"fragment_size\": \"\\\"150\\\"\", \"effective_genome_fraction\": \"\\\"0.74\\\"\", \"redundancy_threshold\": \"\\\"1\\\"\", \"gap_size\": \"\\\"600\\\"\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d66db727-a67b-442d-9dd4-f46107c4994d"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "output_bed_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "awk", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 948, 
+                "top": 401
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "MACS1.3 peaks"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/awk/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"FS\": \"\\\"tab\\\"\", \"file_data\": \"\\\"{if (NR>1) {print $1,$2,$3,$4,$5;} }\\\"\", \"__rerun_remap_job_id__\": null, \"OFS\": \"\\\"tab\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "94579a94-7317-4d9f-a598-cfb1ff62af00"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "output_bed"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "awk", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 961, 
+                "top": 1049
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "MACS2 peaks"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/awk/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"FS\": \"\\\"tab\\\"\", \"file_data\": \"\\\"{print $1,$2,$3,$10,$9;}\\\"\", \"__rerun_remap_job_id__\": null, \"OFS\": \"\\\"tab\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "da9054b2-db53-4b02-9323-4868e0f44ac0"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "score_island_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "awk", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1514, 
+                "top": 209
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "SICER peaks"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/pitagora/unix_tools/awk/0.0.1", 
+            "tool_state": "{\"__page__\": 0, \"FS\": \"\\\"tab\\\"\", \"file_data\": \"\\\"{print $1,$2,$3,\\\\\\\"SICER_peak_\\\\\\\"NR,$4;}\\\"\", \"__rerun_remap_job_id__\": null, \"OFS\": \"\\\"tab\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c6dcdd78-c05a-41bb-8301-70deec8d5670"
+        }
+    }, 
+    "uuid": "d0bdb81e-3dcc-4504-8d65-1784ad32ca6b"
+}

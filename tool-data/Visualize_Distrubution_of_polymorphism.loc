@@ -1,0 +1,35 @@
+#This is a sample file distributed with Galaxy that enables tools
+#to use a directory of BWA indexed sequences data files.  You will need
+#to create these data files and then create a bwa_index.loc file 
+#similar to this one (store it in this directory) that points to 
+#the directories in which those files are stored. The bwa_index.loc 
+#file has this format (white space characters are TAB characters):
+#
+#<build>	<file_base>
+#
+#So, for example, if you had phiX indexed stored in 
+#/depot/data2/galaxy/phiX/base/, 
+#then the bwa_index.loc entry would look like this:
+#
+#phiX	/depot/data2/galaxy/phiX/base/phiX.fa
+#
+#and your /depot/data2/galaxy/phiX/base/ directory
+#would contain phiX.fa.* files:
+#
+#-rw-r--r--  1 james    universe 830134 2005-09-13 10:12 phiX.fa.amb
+#-rw-r--r--  1 james    universe 527388 2005-09-13 10:12 phiX.fa.ann
+#-rw-r--r--  1 james    universe 269808 2005-09-13 10:12 phiX.fa.bwt
+#...etc...
+#
+#Your bwa_index.loc file should include an entry per line for each
+#index set you have stored.  The "file" in the path does not actually
+#exist, but it is the prefix for the actual index files.  For example:
+#
+#phiX	/depot/data2/galaxy/phiX/base/phiX.fa
+#hg18	/depot/data2/galaxy/hg18/base/hg18.fa
+Oryza sativa(IRGSPbuild5)	/disk/reference/distribution_of_polymorphism/o_sativa.build5.fa
+Oryza sativa(IRGSPbuild1.0)	/disk/reference/distribution_of_polymorphism/o_sativa.build1.0.fa
+Arabidopsis thaliana(TAIR10)	/disk/reference/distribution_of_polymorphism/TAIR10.fa
+Zea mays B73(RefGen_v2)	/disk/reference/distribution_of_polymorphism/ZmB73.RefGen2.fa
+Sorghum bicolor(phytozome_v9.0_Sbicolor_v1.4)	/disk/reference/distribution_of_polymorphism/Sorbi.Sbi1.4.fa
+Sorghum bicolor(phytozome_v9.0_Sbicolor_v2.1)	/disk/reference/distribution_of_polymorphism/Sorbi.Sbi12.1.fa

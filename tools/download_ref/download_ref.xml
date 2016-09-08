@@ -1,0 +1,32 @@
+<tool id="download_ref" name="Download References" version="0.0.2">
+  <description>Data for Pitagora-Galaxy</description>
+  <command interpreter="sh">download_ref.sh $id $log</command>
+  <inputs>
+    <param name="id" type="select" label="Reference Data">
+      <option value="hg19_fasta.tar.gz">Fasta UCSC hg19</option>
+      <option value="hg18_fasta.tar.gz">Fasta UCSC hg18</option>
+      <option value="mm10_fasta.tar.gz">Fasta UCSC mm10</option>
+      <option value="mm9_fasta.tar.gz">Fasta UCSC mm9</option>
+      <option value="hg19_bwa_0.5.x.tar.gz">BWA Index (0.5.x) UCSC hg19</option>
+      <option value="hg18_bwa_0.5.x.tar.gz">BWA Index (0.5.x) UCSC hg18</option>
+      <option value="mm10_bwa_0.5.x.tar.gz">BWA Index (0.5.x) UCSC mm10</option>
+      <option value="mm9_bwa_0.5.x.tar.gz">BWA Index (0.5.x) UCSC mm9</option>
+      <option value="hg19_bowtie2.tar.gz">Bowtie2 Index UCSC hg19</option>
+      <option value="hg18_bowtie2.tar.gz">Bowtie2 Index UCSC hg18</option>
+      <option value="mm10_bowtie2.tar.gz">Bowtie2 Index UCSC mm10</option>
+      <option value="mm9_bowtie2.tar.gz">Bowtie2 Index UCSC mm9</option>
+      <option value="hg19_sailfish.tar.gz">Sailfish Index UCSC hg19</option>
+      <option value="mm10_sailfish.tar.gz">Sailfish Index UCSC mm10</option>
+      <option value="hg19_bisulfighter.tar.gz">Bisulfighter Index UCSC hg19</option>
+      <option value="test_bisulfighter.tar.gz">Bisulfighter Index Test</option>
+      <option value="distribution_of_polymorphism.tar.gz">Distribution of Polymorphism</option>
+      <option value="test.tar.gz">Test</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data name="log" format="txt" label="${tool.name} on $id (Log)"/>
+  </outputs>
+  <help>
+**What it does**
+  </help>
+</tool>

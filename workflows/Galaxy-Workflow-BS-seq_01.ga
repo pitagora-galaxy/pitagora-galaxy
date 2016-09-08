@@ -1,0 +1,200 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "BS-seq 01", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "4eedf11e-c6c1-4733-9cb5-49558768830f"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 320
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "ab07bac2-79b5-4ca6-89ac-0c3be52887dd"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "read|in": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool bsfcall", 
+                    "name": "reference"
+                }
+            ], 
+            "label": null, 
+            "name": "bsfcall", 
+            "outputs": [
+                {
+                    "name": "outres", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "outlog", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 200
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outlog"
+                }, 
+                "HideDatasetActionoutres": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outres"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/yutaka-saito/bsfcall/bsfcall/1.0.0", 
+            "tool_state": "{\"read\": \"{\\\"end\\\": \\\"single-end\\\", \\\"__current_case__\\\": 0, \\\"in\\\": null}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\", \"reference\": \"{\\\"source\\\": \\\"indexed\\\", \\\"__current_case__\\\": 0, \\\"index\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ab81854c-a814-4fd8-b9ba-797042e78b1f"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "read|in": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool bsfcall", 
+                    "name": "reference"
+                }
+            ], 
+            "label": null, 
+            "name": "bsfcall", 
+            "outputs": [
+                {
+                    "name": "outres", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "outlog", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 424, 
+                "top": 382
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outlog"
+                }, 
+                "HideDatasetActionoutres": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outres"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/yutaka-saito/bsfcall/bsfcall/1.0.0", 
+            "tool_state": "{\"read\": \"{\\\"end\\\": \\\"single-end\\\", \\\"__current_case__\\\": 0, \\\"in\\\": null}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\", \"reference\": \"{\\\"source\\\": \\\"indexed\\\", \\\"__current_case__\\\": 0, \\\"index\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d8d295b5-3e63-47ec-8f28-cd2663ac115e"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "intype|in1": {
+                    "id": 2, 
+                    "output_name": "outres"
+                }, 
+                "intype|in2": {
+                    "id": 3, 
+                    "output_name": "outres"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "ComMet", 
+            "outputs": [
+                {
+                    "name": "outdmc", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "outdmr", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 749, 
+                "top": 237
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/yutaka-saito/commet/ComMet/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"intype\": \"{\\\"in2\\\": null, \\\"mapper\\\": \\\"bsf-call\\\", \\\"in1\\\": null, \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/galaxy/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "06a715df-2eec-42f6-8e2d-b4096c5e2bef"
+        }
+    }, 
+    "uuid": "6dd84712-e186-431f-bc08-e6e8235f268e"
+}
