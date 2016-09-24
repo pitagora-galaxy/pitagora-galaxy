@@ -5,7 +5,8 @@
 
 cd ~/galaxy/tools
 git clone $2
-ed -i '$d' ~/galaxy/config/tool_conf.xml
+
+# Delete the last line (should be </toolbox>)
+sed -i '$d' ~/galaxy/config/tool_conf.xml
 cat ~/galaxy/tools/$1/tool_conf.xml >> ~/galaxy/config/tool_conf.xml
 echo '</toolbox>' >> ~/galaxy/config/tool_conf.xml
-
