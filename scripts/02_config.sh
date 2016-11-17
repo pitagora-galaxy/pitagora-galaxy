@@ -1,7 +1,7 @@
-#/bin/bash
+#!/bin/bash
 
 # CREATE GALAXY SERVICE
-sudo cp ./galaxy-init.sh /etc/init.d/galaxy
+sudo cp ./scripts/galaxy-init.sh /etc/init.d/galaxy
 sudo chmod 755 /etc/init.d/galaxy
 
 # CREATE MYSQL DATABASE AND USER
