@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # INSTALL PYTHON PACKAGES
 sudo curl -kL https://bootstrap.pypa.io/get-pip.py | python
