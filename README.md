@@ -26,7 +26,6 @@ Import Pitagora's workflows.
 $ sh script/04_workflows.sh
 ```
 
-## ワークフロー
+## Workflows
 
-* ./workflows に置いてあります。
-* 各ワークフローの詳細は [Wiki](http://wiki.pitagora-galaxy.org/wiki/index.php/Workflows) をご覧ください。
+* For the details of workflows, see our [wiki](http://wiki.pitagora-galaxy.org/wiki/index.php/Workflows).
