@@ -8,8 +8,8 @@ The scripts are tested on Ubuntu 14.04.4.
 Install Git and clone this repository.
 * Set MySQL password to 'galaxy' when its prompt asks.
 ```
-$ sudo yum update
-$ sudo yum install -y git
+$ sudo apt-get update
+$ sudo apt-get install -y git
 $ git clone https://github.com/pitagora-galaxy/install-0.3.2.git
 ```
 
