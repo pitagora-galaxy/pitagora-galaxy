@@ -16,6 +16,9 @@ $ git clone https://github.com/pitagora-galaxy/install-0.3.2.git
 Install OS Packages, Python, Galaxy.
 ```
 $ sh scripts/01_install.sh
+..
+serving on http://127.0.0.1:8080
+(Ctl + C to exit)
 ```
 
 Configure Galaxy installation (database, disks, proxy, etc.)
