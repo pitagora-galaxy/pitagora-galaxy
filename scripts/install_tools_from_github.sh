@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sed -i '$d' ~/galaxy/config/tool_conf.xml
+# ADD A NEW LABEL ON THE TOOL PANEL
+sed -i '$d' ~/galaxy/config/tool_conf.xml # DELETE THE LAST LINE
 echo '  <label id="additional_tools" text="Additional Tools" />' >> ~/galaxy/config/tool_conf.xml
 echo '</toolbox>' >> ~/galaxy/config/tool_conf.xml
 

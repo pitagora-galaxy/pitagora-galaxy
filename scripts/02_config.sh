@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CREATE GALAXY SERVICE
-sudo cp ./scripts/galaxy-init.sh /etc/init.d/galaxy
+sudo cp ../scripts/galaxy-init.sh /etc/init.d/galaxy
 sudo chmod 755 /etc/init.d/galaxy
 
 # CREATE MYSQL DATABASE AND USER
@@ -10,12 +10,12 @@ mysql -u root -pgalaxy < create.sql
 echo 'exit' | mysql -u galaxy -pgalaxy -D galaxy
 
 # ADD DISKS
-sudo mkfs -t ext4 /dev/xvdb
-sudo mkfs -t ext4 /dev/xvdc
+sudo mkfs -t ext4 /dev/sdb
+sudo mkfs -t ext4 /dev/sdc
 sudo mkdir -p /disk/reference
 sudo mkdir -p /disk/database
-echo '/dev/xvdb /disk/reference ext4 defaults 0 0' | sudo tee -a /etc/fstab
-echo '/dev/xvdc /disk/database  ext4 defaults 0 0' | sudo tee -a /etc/fstab
+echo '/dev/sdb /disk/reference ext4 defaults 0 0' | sudo tee -a /etc/fstab
+echo '/dev/sdc /disk/database  ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 sudo chown ubuntu:ubuntu /disk/reference
 sudo chown ubuntu:ubuntu /disk/database
@@ -35,10 +35,10 @@ sudo chmod 644 /var/www/html/.htaccess
 sudo service apache2 restart
 
 # MODIFY GALAXY CONFIG
-cp ./config/galaxy.ini ~/galaxy/config/
-cp ./config/job_conf.xml ~/galaxy/config/
-cp ./config/tool_data_table_conf.xml ~/galaxy/config/
-cp ./config/tool_sheds_conf.xml ~/galaxy/config/
+cp ../config/galaxy.ini ~/galaxy/config/
+cp ../config/job_conf.xml ~/galaxy/config/
+cp ../config/tool_data_table_conf.xml ~/galaxy/config/
+cp ../config/tool_sheds_conf.xml ~/galaxy/config/
 cp ~/galaxy/config/tool_conf.xml.sample ~/galaxy/config/tool_conf.xml
 export PATH=$HOME/galaxy-python/install/bin:$PATH
 export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.11/site-packages

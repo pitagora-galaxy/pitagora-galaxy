@@ -24,9 +24,9 @@ make install
 # SETTING ENVIRONMENTAL VARIABLES
 which python
 echo 'export PATH=$HOME/galaxy-python/install/bin:$PATH' >> ~/.profile
-echo 'export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.11/site-packages' >> ~/.profile
+echo 'export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.7/site-packages' >> ~/.profile
 export PATH=$HOME/galaxy-python/install/bin:$PATH
-export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.11/site-packages
+export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.7/site-packages
 which python
 python --version
 
