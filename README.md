@@ -15,7 +15,8 @@ $ git clone https://github.com/pitagora-galaxy/install-0.3.2.git
 
 Install OS Packages, Python, Galaxy.
 ```
-$ sh scripts/01_install.sh
+$ cd scripts
+$ sh 01_install.sh
 ..
 serving on http://127.0.0.1:8080
 (Ctl + C to exit)
@@ -23,17 +24,20 @@ serving on http://127.0.0.1:8080
 
 Configure Galaxy installation (database, disks, proxy, etc.)
 ```
-$ sh scripts/02_config.sh
+$ cd scripts
+$ sh 02_config.sh
 ```
 
 Install Galaxy tools from ToolShed or from GitHub.
 ```
-$ sh scripts/03_tools.sh
+$ cd scripts
+$ sh 03_tools.sh
 ```
 
 Import Pitagora's workflows.
 ```
-$ sh scripts/04_workflows.sh
+$ cd scripts
+$ sh 04_workflows.sh
 ```
 
 ## Workflows
