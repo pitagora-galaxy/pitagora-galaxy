@@ -54,3 +54,8 @@ sudo sysv-rc-conf mysql on
 sudo sysv-rc-conf acpid on
 sudo sysv-rc-conf docker on
 sudo sysv-rc-conf galaxy on
+
+# CONDA
+cd ~/
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda2-latest-Linux-x86_64.sh

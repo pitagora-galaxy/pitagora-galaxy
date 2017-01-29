@@ -10,7 +10,8 @@ Install Git and clone this repository.
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y git
-$ git clone https://github.com/pitagora-galaxy/install-0.3.2.git
+$ git clone -b release_0.3.3 https://github.com/pitagora-galaxy/pitagora-galaxy.git
+$ cd pitagora-galaxy
 ```
 
 Install OS Packages, Python, Galaxy.
@@ -26,6 +27,20 @@ Configure Galaxy installation (database, disks, proxy, etc.)
 ```
 $ cd scripts
 $ sh 02_config.sh
+..
+/dev/sdb is entire device, not just one partition!
+Proceed anyway? (y,n) y
+..
+/dev/sdc is entire device, not just one partition!
+Proceed anyway? (y,n) y
+..
+Miniconda2 will now be installed into this location:
+/home/ubuntu/miniconda2
+[/home/ubuntu/miniconda2] >>> Enter
+..
+Do you wish the installer to prepend the Miniconda2 install location
+to PATH in your /home/ubuntu/.bashrc ? [yes|no]
+[no] >>> no
 ```
 
 Install Galaxy tools from ToolShed or from GitHub.
