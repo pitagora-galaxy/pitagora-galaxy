@@ -1,9 +1,9 @@
-# Pitagora-Galaxy 0.3.2
+# Pitagora-Galaxy 0.3.3
 
 ## Installation
 
-The scripts are tested on Ubuntu 14.04.4.
-* AWS: ubuntu-trusty-14.04-amd64-server-20160114.5 (ami-a21529cc)
+The scripts are tested on Ubuntu 16.04.
+* AWS: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type (ami-be4a24d9)
 
 Install Git and clone this repository.
 * Set MySQL password to 'galaxy' when its prompt asks.
