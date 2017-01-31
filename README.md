@@ -11,12 +11,11 @@ Install Git and clone this repository.
 $ sudo apt-get update
 $ sudo apt-get install -y git
 $ git clone -b release_0.3.3 https://github.com/pitagora-galaxy/pitagora-galaxy.git
-$ cd pitagora-galaxy
+$ cd pitagora-galaxy/scripts
 ```
 
 Install OS Packages, Python, Galaxy.
 ```
-$ cd scripts
 $ sh 01_install.sh
 ..
 serving on http://127.0.0.1:8080
@@ -25,7 +24,6 @@ serving on http://127.0.0.1:8080
 
 Configure Galaxy installation (database, disks, proxy, etc.)
 ```
-$ cd scripts
 $ sh 02_config.sh
 ..
 /dev/sdb is entire device, not just one partition!
@@ -43,16 +41,17 @@ to PATH in your /home/ubuntu/.bashrc ? [yes|no]
 [no] >>> no
 ```
 
+Access http://<ip_address>/galaxy/ and create an admin user as admin@pitagora-galaxy.org. Then create an api key.
+
 Install Galaxy tools from ToolShed or from GitHub.
 ```
-$ cd scripts
-$ sh 03_tools.sh
+$ . .~/.profile
+$ sh 03_tools.sh <api_key>
 ```
 
 Import Pitagora's workflows.
 ```
-$ cd scripts
-$ sh 04_workflows.sh
+$ sh 04_workflows.sh <api_key>
 ```
 
 ## Workflows
