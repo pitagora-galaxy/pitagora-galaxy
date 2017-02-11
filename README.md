@@ -2,8 +2,8 @@
 
 ## Installation
 
-The scripts are tested on Ubuntu 16.04.
-* AWS: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type (ami-be4a24d9)
+The scripts are tested on Ubuntu 14.04.4.
+* AWS: ubuntu-trusty-14.04-amd64-server-20160114.5 (ami-a21529cc)
 
 Install Git and clone this repository.
 * Set MySQL password to 'galaxy' when its prompt asks.
@@ -23,6 +23,7 @@ serving on http://127.0.0.1:8080
 ```
 
 Configure Galaxy installation (database, disks, proxy, etc.)
+* AWS: Edit this script: /dev/sd[b|c] to /dev/xvd[b|c]
 ```
 $ sh 02_config.sh
 ..
