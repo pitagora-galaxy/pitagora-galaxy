@@ -13,9 +13,7 @@ Install Git and clone this repository.
     $ git clone -b release_0.3.3 https://github.com/pitagora-galaxy/pitagora-galaxy.git
     $ cd pitagora-galaxy/scripts
 
-Install OS Packages, Python, Galaxy.
-
-* Set MySQL password to 'galaxy' when its prompt asks.
+Install OS Packages, Python, Galaxy. Set MySQL password to 'galaxy' when its prompt asks.
 
     $ sh 01_install.sh
     ..
