@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# For EC2: add hostname to /etc/hostname to avoid warnings on sudo
+sudo sh -c 'echo 127.0.1.1 $(hostname) >> /etc/hosts'
+
 # INSTALLING OS PACKAGES
 sudo apt-get install -y sysv-rc-conf gcc make libsqlite3-dev libncurses5-dev zlib1g-dev libbz2-dev libssl-dev
 sudo apt-get install -y mysql-server libmysqlclient-dev
