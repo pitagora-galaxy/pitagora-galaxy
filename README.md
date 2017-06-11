@@ -1,4 +1,6 @@
-# Pitagora-Galaxy 0.3.3
+# Pitagora-Galaxy 0.3.4
+
+0.3.4 is not yet released. These contents are subject to change.
 
 ## Installation
 
