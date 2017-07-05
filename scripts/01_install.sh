@@ -13,6 +13,9 @@ sudo apt-get update
 sudo apt-get install -y --force-yes docker-engine
 sudo apt-get install -y default-jdk gfortran g++
 
+# Add user 'ubuntu' to group 'docker'
+sudo usermod -aG docker ${USER}
+
 # INSTALLING PYTHON
 mkdir ~/galaxy-python
 cd ~/galaxy-python
@@ -37,5 +40,4 @@ python --version
 cd
 git clone -b release_16.10 https://github.com/galaxyproject/galaxy.git
 cd galaxy
-./run.sh 
-
+./run.sh
