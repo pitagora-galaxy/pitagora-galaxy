@@ -38,6 +38,6 @@ python --version
 
 # INSTALLING GALAXY
 cd
-git clone -b release_16.10 https://github.com/galaxyproject/galaxy.git
+git clone -b release_17.05 https://github.com/galaxyproject/galaxy.git
 cd galaxy
 ./run.sh
