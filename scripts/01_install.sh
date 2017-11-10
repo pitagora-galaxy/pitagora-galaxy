@@ -4,40 +4,62 @@
 sudo sh -c 'echo 127.0.1.1 $(hostname) >> /etc/hosts'
 
 # INSTALLING OS PACKAGES
-sudo apt-get install -y sysv-rc-conf gcc make libsqlite3-dev libncurses5-dev zlib1g-dev libbz2-dev libssl-dev
-sudo apt-get install -y mysql-server libmysqlclient-dev
-sudo apt-get install -y apache2 vsftpd acpid
-sudo apt-get install -y linux-image-extra-$(uname -r)
-echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' | sudo tee -a /etc/apt/sources.list.d/docker.list
-sudo apt-get update
-sudo apt-get install -y --force-yes docker-engine
-sudo apt-get install -y default-jdk gfortran g++
+sudo apt-get update -y && sudo apt-get install -y \
+  sysv-rc-conf \
+  gcc \
+  make \
+  libsqlite3-dev \
+  libncurses5-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libssl-dev \
+  mysql-server \
+  libmysqlclient-dev \
+  apache2 \
+  vsftpd \
+  acpid \
+  default-jdk \
+  gfortran \
+  g++
 
-# Add user 'ubuntu' to group 'docker'
-sudo usermod -aG docker ${USER}
+# INSTALLING DOCKER - https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#set-up-the-repository
+
+# install required packages via apt
+sudo apt-get install -y \
+  linux-image-extra-$(uname -r) \
+  linux-image-extra-virtual \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  software-properties-common
+
+# Add Docker’s official GPG key and repository
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# Add user 'ubuntu' to group 'docker', require re-login to enable docker command without sudo
+sudo groupadd docker
+sudo usermod -aG docker "${USER}"
 
 # INSTALLING PYTHON
-mkdir ~/galaxy-python
-cd ~/galaxy-python
-wget http://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz
-mkdir install
+mkdir -p "${HOME}/galaxy-python/install"
+cd "${HOME}/galaxy-python"
+wget "http://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz"
 tar xvzf Python-2.7.11.tgz
 cd Python-2.7.11
-./configure --prefix=/home/ubuntu/galaxy-python/install
+./configure --prefix="${HOME}/galaxy-python/install"
 make
 make install
 
 # SETTING ENVIRONMENTAL VARIABLES
-which python
-echo 'export PATH=$HOME/galaxy-python/install/bin:$PATH' >> ~/.profile
-echo 'export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.7/site-packages' >> ~/.profile
-export PATH=$HOME/galaxy-python/install/bin:$PATH
-export PYTHONPATH=$HOME/galaxy-python/install/lib/python2.7/site-packages
-which python
+echo 'export PATH=${HOME}/galaxy-python/install/bin:${PATH}' >> "${HOME}/.profile"
+echo 'export PYTHONPATH=${HOME}/galaxy-python/install/lib/python2.7/site-packages' >> "${HOME}/.profile"
+export PATH=${HOME}/galaxy-python/install/bin:$PATH
+export PYTHONPATH=${HOME}/galaxy-python/install/lib/python2.7/site-packages
 python --version
 
 # INSTALLING GALAXY
 cd
 git clone -b release_17.05 https://github.com/galaxyproject/galaxy.git
 cd galaxy
-./run.sh
+./run.sh --daemon
