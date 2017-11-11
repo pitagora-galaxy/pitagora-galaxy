@@ -1,0 +1,15 @@
+[Unit]
+Description=Galaxy
+After=mysql.service
+
+[Service]
+User=galaxy
+Restart=always
+ExecStart=/home/galaxy/galaxy/run.sh --daemon
+ExecStop=/home/galaxy/galaxy/run.sh --stop
+Type=forking
+PIDFile=/home/galaxy/galaxy/paster.pid
+
+[Install]
+WantedBy=multi-user.target
+Alias=galaxy.service

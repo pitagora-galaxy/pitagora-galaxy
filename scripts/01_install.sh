@@ -37,7 +37,7 @@ sudo apt-get install -y \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-# Add user 'ubuntu' to group 'docker', require re-login to enable docker command without sudo
+# Add user 'galaxy' to group 'docker', require re-login to enable docker command without sudo
 sudo groupadd docker
 sudo usermod -aG docker "${USER}"
 
@@ -62,4 +62,4 @@ python --version
 cd
 git clone -b release_17.05 https://github.com/galaxyproject/galaxy.git
 cd galaxy
-./run.sh --daemon
+./run.sh

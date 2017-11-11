@@ -1,16 +1,16 @@
-# Pitagora-Galaxy 0.3.x Latest
+# Pitagora-Galaxy 0.3.5
 
 ## Installation
 
-The scripts are tested on Ubuntu 14.04.4.
+The scripts are tested on Ubuntu 16.04.3.
 
-* AWS: ubuntu-trusty-14.04-amd64-server-20160114.5 (ami-a21529cc)
+* AWS: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type (ami-15872773)
 
 Install Git and clone this repository.
 
     $ sudo apt-get update
     $ sudo apt-get install -y git
-    $ git clone https://github.com/pitagora-galaxy/pitagora-galaxy.git
+    $ git clone -b v0.3.5 https://github.com/pitagora-galaxy/pitagora-galaxy.git
     $ cd pitagora-galaxy/scripts
 
 Install OS Packages, Python, Galaxy. Set MySQL password to 'galaxy' when its prompt asks.

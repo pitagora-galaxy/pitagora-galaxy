@@ -2,7 +2,7 @@
 # chkconfig: 2345 99 99
 # description: autorun galaxy
 
-user=ubuntu
+user=galaxy
 galaxy_run=/home/ubuntu/galaxy/run.sh
 
 do_start(){

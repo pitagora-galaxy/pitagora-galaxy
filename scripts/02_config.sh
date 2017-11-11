@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # CREATE GALAXY SERVICE
-sudo cp ../scripts/galaxy-init.sh /etc/init.d/galaxy
-sudo chmod 755 /etc/init.d/galaxy
+sudo cp ../scripts/galaxy.service /etc/systemd/system/
+sudo chmod 644 /etc/systemd/system/galaxy.service
 
 # CREATE MYSQL DATABASE AND USER
 sudo service mysql start
@@ -17,8 +17,8 @@ sudo mkdir -p /disk/database
 echo '/dev/sdb /disk/reference ext4 defaults 0 0' | sudo tee -a /etc/fstab
 echo '/dev/sdc /disk/database  ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
-sudo chown ubuntu:ubuntu /disk/reference
-sudo chown ubuntu:ubuntu /disk/database
+sudo chown galaxy:galaxy /disk/reference
+sudo chown galaxy:galaxy /disk/database
 
 # MOVE DATA DIRECTORY
 cp -r ~/galaxy/database/* /disk/database/
