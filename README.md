@@ -1,4 +1,4 @@
-# Pitagora-Galaxy 0.3.3
+# Pitagora-Galaxy 0.3.x Latest
 
 ## Installation
 
@@ -10,7 +10,7 @@ Install Git and clone this repository.
 
     $ sudo apt-get update
     $ sudo apt-get install -y git
-    $ git clone -b release_0.3.3 https://github.com/pitagora-galaxy/pitagora-galaxy.git
+    $ git clone https://github.com/pitagora-galaxy/pitagora-galaxy.git
     $ cd pitagora-galaxy/scripts
 
 Install OS Packages, Python, Galaxy. Set MySQL password to 'galaxy' when its prompt asks.
