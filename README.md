@@ -1,56 +1,38 @@
-# Pitagora-Galaxy 0.3.5
+# Pitagora-Galaxy 0.4.1
 
-## Installation
+Create a file store (first time only).
 
-The scripts are tested on Ubuntu 16.04.3.
-
-* AWS: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type (ami-15872773)
-
-Install Git and clone this repository.
-
-    $ sudo apt-get update
-    $ sudo apt-get install -y git
-    $ git clone -b v0.3.5 https://github.com/pitagora-galaxy/pitagora-galaxy.git
-    $ cd pitagora-galaxy/scripts
-
-Install OS Packages, Python, Galaxy. Set MySQL password to 'galaxy' when its prompt asks.
-
-    $ sh 01_install.sh
-    ..
-    serving on http://127.0.0.1:8080
-    (Ctl + C to exit)
-
-Configure Galaxy installation (database, disks, proxy, etc.)
-
-* AWS: Edit this script: /dev/sd[b|c] to /dev/xvd[b|c]
 ```
-$ sh 02_config.sh
-..
-/dev/sdb is entire device, not just one partition!
-Proceed anyway? (y,n) y
-..
-/dev/sdc is entire device, not just one partition!
-Proceed anyway? (y,n) y
-..
-Miniconda2 will now be installed into this location:
-/home/ubuntu/miniconda2
-[/home/ubuntu/miniconda2] >>> Enter
-..
-Do you wish the installer to prepend the Miniconda2 install location
-to PATH in your /home/ubuntu/.bashrc ? [yes|no]
-[no] >>> no
+docker create -v /export --name galaxy-store \
+  bgruening/galaxy-stable /bin/true
 ```
 
-Access http://<ip_address>/galaxy/ and create an admin user as admin@pitagora-galaxy.org. Then create an api key.
+Run a container (first time only).
 
-Install Galaxy tools from ToolShed or from GitHub.
+```
+docker run \
+  --detach \
+  -p 8080:80 -p 8021:21 -p 8022:22 -p 8800:8800 \
+  --name pitagora-galaxy \
+  --volumes-from galaxy-store \
+  --privileged=true \
+  -e GALAXY_CONFIG_ENABLE_BETA_MULLED_CONTAINERS=True \
+  -e ENABLE_TTS_INSTALL=True \
+  pitagora-galaxy
+```
 
-    $ . ~/.profile
-    $ sh 03_tools.sh <api_key>
+Connect to the container (if needed).
 
-Import Pitagora's workflows.
+    docker exec -it galaxy /bin/bash
 
-    $ sh 04_workflows.sh <api_key>
+Stop the container.
+
+    docker stop galaxy
+
+Restart the container.
+
+    docker start galaxy
+
 
 ## Workflows
 
